@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .leftdiv{
+                float:left ;
+                background-color: lightgrey;
+                width: 300px;
+                border: 15px solid rgb(86, 130, 180);
+                padding: 25px;
+                margin: 20px;
+                height: 400px;
+        }
+
+        .middlediv{
+            float:left ;
+                background-color: lightgrey;
+                width: 300px;
+                border: 15px solid rgb(86, 130, 180);
+                padding: 25px;
+                margin: 20px;
+                height: 400px;
+
+        }
+
+        .rightdiv{
+                float:left ;
+                background-color: lightgrey;
+                width: 300px;
+                border: 15px solid rgb(41, 107, 151);
+                padding: 25px;
+                margin: 20px;
+                height: 400px;
+
+        }
+    </style>
+    <link rel="stylesheet" href="css\ctbk.css">
+    
+</head>
+<body>
+    <!-- <center>
+        <h2>Welcome</h2>
+        <h4>Add to Contact</h4>
+    </center> -->
+        <br><br>
+        <div class="leftdiv" id="bx1">
+            <h2>Add Contact Here</h2>
+            <form action="ct" method="post">
+                {%csrf_token%}
+     
+                Enter The Name       : <input type="text"  name="name"><br><br>
+                Enter The Mob number :<input type="text" name="mob"><br><br>
+                <center>
+                <input type="submit" value="Add Contact"><br>
+                {{msg1}}
+
+            </center>
+
+            </form>
+        </div><br><br>
+        
+        <div class="middlediv" id="bx2">
+            <h2>Update Contact</h2><br>
+            <form action="mid" method="post">
+                {%csrf_token%}
+
+            Enter Old Name :<input type="text" name="oldname"><br><br>
+            Enter New Name:<input type="text" name="newname"><br><br>
+            <center>
+            <input type="submit" value="Update Name"> <br>
+            {{msg3}}
+            {{msg4}}
+        </center>
+        </form>
+
+        
+            <h2>Update mbl number</h2>
+            <form action="mid2" method="post">
+                {%csrf_token%}
+                Enter The Name:<input type="text" name="name2">
+                Enter The New Number=<input type="text" name="newnumber">
+                <center>
+                <input type="submit" value="Update Phone Number"><br>
+                {{msg5}}
+                {{msg6}}
+            </center>
+ 
+            </form>
+        </div>
+
+        <div class="rightdiv" id="bx3">
+            <h2>Contact Details></h2>
+            <form action="view" method="post">
+                {%csrf_token%}
+                <br><br><center>
+                <input type="submit" value="View All">
+            <br>
+            <table border="1">
+                <tr>
+                    <td>Id</td><td>Name</td><td>Phone no</td>
+                </tr>
+                {% for i in dis %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.phone_number}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            </center><br><br>
+            </form>
+
+            <h2>Delete the contact</h2>
+            <form action="dtl" method="post">
+                {%csrf_token%}
+                Enter The Name: <input type="text" name="deltname"><br><br>
+                <center>
+                <input type="submit" value="Delete"><br>
+                {{msg2}}
+            </center>
+            </form>
+            
+
+
+        </div>
+    
+</body>
+</html>

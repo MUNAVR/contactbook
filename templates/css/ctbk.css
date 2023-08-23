@@ -1,0 +1,18 @@
+*{
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+
+body{
+     background-image: url("—Pngtree—3d rendering for display product_1259884.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    padding-top: 100px;
+}
+
+
